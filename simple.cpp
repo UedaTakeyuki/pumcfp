@@ -1,30 +1,12 @@
 #include "elapse.h"
+#include <vector>
 
 void kerokero1(){
-  auto prefix = std::string(__FILE__) + ":" + std::to_string(__LINE__) + ":" +__func__;
-  ELAPSE  elapse(prefix);
-}
-
-void kerokero2(){
-  auto prefix = std::string(__FILE__) + ":" + std::to_string(__LINE__) + ":" +__func__;
-  ELAPSE  elapse(prefix);
+  ELAPSE  elapse(__func__);
+  std::vector<int> vec = {1,2,3,4,5};
 }
 
 int main(){
   ELAPSE elapse;
-  {
-    auto prefix = std::string(__FILE__) + ":" + std::to_string(__LINE__) + ":" +__func__;
-    ELAPSE  elapse(prefix);
-  }
   kerokero1();
-  {
-    auto prefix = std::string(__FILE__) + ":" + std::to_string(__LINE__) + ":" +__func__;
-    ELAPSE elapse(prefix);
-  }
-  kerokero2();
-  {
-    auto prefix = std::string(__FILE__) + ":" + std::to_string(__LINE__) + ":" +__func__;
-    ELAPSE elapse(prefix);
-  }
-  return 1;
 }
